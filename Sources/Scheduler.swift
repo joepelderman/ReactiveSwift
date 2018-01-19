@@ -193,7 +193,7 @@ private final class DispatchSourceTimerWrapper: Hashable {
 	}
 	
 	fileprivate static func ==(lhs: DispatchSourceTimerWrapper, rhs: DispatchSourceTimerWrapper) -> Bool {
-		return lhs === rhs
+		return lhs.value === rhs.value
 	}
 }
 
