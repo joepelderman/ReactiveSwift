@@ -66,15 +66,18 @@ extension Signal {
 				logger(identifier, event, fileName, functionName, lineNumber)
 			}
 		}
+		
+		// See https://bugs.swift.org/browse/SR-6796
+		return self
 
-		return self.on(
-			failed: log(.failed),
-			completed: log(.completed) as ((()) -> Void)?,
-			interrupted: log(.interrupted) as ((()) -> Void)?,
-			terminated: log(.terminated) as ((()) -> Void)?,
-			disposed: log(.disposed) as ((()) -> Void)?,
-			value: log(.value)
-		)
+//		return self.on(
+//			failed: log(.failed),
+//			completed: log(.completed) as ((()) -> Void)?,
+//			interrupted: log(.interrupted) as ((()) -> Void)?,
+//			terminated: log(.terminated) as ((()) -> Void)?,
+//			disposed: log(.disposed) as ((()) -> Void)?,
+//			value: log(.value)
+//		)
 	}
 }
 
@@ -104,17 +107,20 @@ extension SignalProducer {
 				logger(identifier, event, fileName, functionName, lineNumber)
 			}
 		}
+		
+		// See https://bugs.swift.org/browse/SR-6796
+		return self
 
-		return self.on(
-			starting: log(.starting) as ((()) -> Void)?,
-			started: log(.started) as ((()) -> Void)?,
-			failed: log(.failed),
-			completed: log(.completed) as ((()) -> Void)?,
-			interrupted: log(.interrupted) as ((()) -> Void)?,
-			terminated: log(.terminated) as ((()) -> Void)?,
-			disposed: log(.disposed) as ((()) -> Void)?,
-			value: log(.value)
-		)
+//		return self.on(
+//			starting: log(.starting) as ((()) -> Void)?,
+//			started: log(.started) as ((()) -> Void)?,
+//			failed: log(.failed),
+//			completed: log(.completed) as ((()) -> Void)?,
+//			interrupted: log(.interrupted) as ((()) -> Void)?,
+//			terminated: log(.terminated) as ((()) -> Void)?,
+//			disposed: log(.disposed) as ((()) -> Void)?,
+//			value: log(.value)
+//		)
 	}
 }
 
